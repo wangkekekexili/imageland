@@ -9,14 +9,8 @@ import (
 type Distance func(left, right color.Color) float64
 
 func EuclideanDistance(left, right color.Color) float64 {
-	lr, lg, lb, _ := left.RGBA()
-	rr, rg, rb, _ := right.RGBA()
-	lr &= 255
-	lg &= 255
-	lb &= 255
-	rr &= 255
-	rg &= 255
-	rb &= 255
+	lr, lg, lb := rgb(left)
+	rr, rg, rb := rgb(right)
 	return float64((lr-rr)*(lr-rr) + (lg-rg)*(lg-rg) + (lb-rb)*(lb-rb))
 }
 

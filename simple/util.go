@@ -13,3 +13,8 @@ func forEachPixel(img image.Image, fn func(x, y int, c color.Color)) {
 		}
 	}
 }
+
+func rgb(c color.Color) (r, g, b uint8) {
+	cr, cg, cb, _ := c.RGBA()
+	return uint8(cr & 255), uint8(cg & 255), uint8(cb & 255)
+}
